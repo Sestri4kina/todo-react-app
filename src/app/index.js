@@ -9,20 +9,17 @@ var TodoComponent = React.createClass({
         }
     },
     render: function(){
-        var ager = setTimeout(function(){
-            this.setState({
-                age: 25
-            });
-        }.bind(this), 5000);
+        var todos = this.state.todos; //local version
+        todos = todos.map((item) => {
+            return(
+                <li>{item}</li>
+            );
+        });//cycling through todos data
         return(
             <div id="todo-list">
-                <p>My plans for a day</p>
-                <p>Ok, let's see how {this.state.age} years person spend a day </p>
-                <ul>
-                    <li>{this.state.todos[0]}</li>
-                    <li>{this.state.todos[1]}</li>
-                    <li>{this.state.todos[2]}</li>
-                </ul>
+                <p>Common plans for a day</p>
+                <p>Ok, let's see how {this.state.age} years person spends a day </p>
+                <ul>{todos}</ul>
             </div>
         );
     }//render
