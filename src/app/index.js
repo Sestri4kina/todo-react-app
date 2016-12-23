@@ -10,9 +10,9 @@ var TodoComponent = React.createClass({
     },
     render: function(){
         var todos = this.state.todos; //local version
-        todos = todos.map((item) => {
+        todos = todos.map((item, index) => {
             return(
-                <li>{item}</li>
+                <TodoItem item={item} key={index}/>
             );
         });//cycling through todos data
         return(
@@ -23,6 +23,19 @@ var TodoComponent = React.createClass({
             </div>
         );
     }//render
+});
+
+//create TodoItem
+var TodoItem = React.createClass({
+    render: function(){
+        return(
+            <li>
+                <div className="todo-item">
+                    <span className="item-name">{this.props.item}</span>
+                </div>
+            </li>
+        );
+    }
 });
 
 
