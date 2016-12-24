@@ -12,7 +12,7 @@ var TodoComponent = React.createClass({
         var todos = this.state.todos; //local version
         todos = todos.map((item, index) => {
             return(
-                <TodoItem item={item} key={index}/>
+                <TodoItem item={item} key={index} onDelete={this.onDelete}/>
             );
         });//cycling through todos data
         return(
@@ -22,7 +22,16 @@ var TodoComponent = React.createClass({
                 <ul>{todos}</ul>
             </div>
         );
-    }//render
+    },//render
+    //custom functions
+    onDelete: function(item){
+        var updatedTodos = this.state.todos.filter((val, index)=> {
+            return item !== val;
+        });
+        this.setState({
+            todos: updatedTodos
+        });
+    }
 });
 
 //create TodoItem
@@ -32,9 +41,14 @@ var TodoItem = React.createClass({
             <li>
                 <div className="todo-item">
                     <span className="item-name">{this.props.item}</span>
+                    <span className="item-delete" onClick={this.handleDelete}> <strong>X</strong> </span>
                 </div>
             </li>
         );
+    },
+    //custom functions
+    handleDelete: function(){
+        this.props.onDelete(this.props.item);
     }
 });
 
