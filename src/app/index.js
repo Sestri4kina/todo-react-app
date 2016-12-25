@@ -23,7 +23,7 @@ var TodoComponent = React.createClass({
                 <p>Common plans for a day</p>
                 <p>Ok, let's see how {this.state.age} years person spends a day </p>
                 <ul>{todos}</ul>
-                <AddItem />
+                <AddItem onAdd={this.onAdd}/>
             </div>
         );
     },//render
@@ -35,6 +35,13 @@ var TodoComponent = React.createClass({
         this.setState({
             todos: updatedTodos
         });
+    },
+    onAdd: function(item){
+        var updatedTodos = this.state.todos;
+        updatedTodos.push(item);
+        this.setState({
+            todos: updatedTodos
+        })
     }
 });
 
