@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 require('./css/index.css');
-import {Router, Route, browserHistory} from 'react-router';
+import {Router, Route, browserHistory, Link} from 'react-router';
 
 var TodoItem = require('./todo-item');
 var AddItem = require('./add-item');
@@ -21,8 +21,7 @@ var App = React.createClass({
 var TodoComponent = React.createClass({
     getInitialState: function(){
         return {
-            todos: ['solve a task', 'go for a run', 'write some more code'],
-            age: 29
+            todos: ['solve a task', 'go for a run', 'write some more code']
         }
     },
     render: function(){
@@ -34,8 +33,9 @@ var TodoComponent = React.createClass({
         });//cycling through todos data
         return(
             <div id="todo-list">
-                <p>Common plans for a day</p>
-                <p>Ok, let's see how {this.state.age} years person spends a day </p>
+                <Link to={'/about'}>About</Link>
+                <h2>Plans</h2>
+                <p>Success doesn't just happen. It's planned for.</p>
                 <ul>{todos}</ul>
                 <AddItem onAdd={this.onAdd}/>
             </div>
