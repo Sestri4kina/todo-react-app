@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var TodoItem = require('./todo-item');
+var AddItem = require('./add-item');
 require('./css/index.css');
 
 var TodoComponent = React.createClass({
@@ -22,6 +23,7 @@ var TodoComponent = React.createClass({
                 <p>Common plans for a day</p>
                 <p>Ok, let's see how {this.state.age} years person spends a day </p>
                 <ul>{todos}</ul>
+                <AddItem />
             </div>
         );
     },//render
