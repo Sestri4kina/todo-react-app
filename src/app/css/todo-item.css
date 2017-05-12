@@ -21,3 +21,26 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+.item-done {
+  flex-basis: 0;
+  flex-grow: 1;
+  text-align: right;
+  color: #8C0949;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.item-completed {
+  text-decoration: line-through;
+  color: #8C0949;
+}
+
+.item-check {
+  flex-basis: 0;
+  flex-grow: 1;
+  text-align: right;
+  color: #8C0949;
+  font-weight: bold;
+  cursor: pointer;
+}
